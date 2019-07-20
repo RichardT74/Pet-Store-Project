@@ -6,7 +6,7 @@ class Animal
 	attr_reader :id
 	attr_accessor :name, :type, :breed, :age, :admission_date, :ready_to_adopt, :owner_id
 
-	def initinalize ( options )
+	def initialize ( options )
 		@id = options['id'].to_i
 		@name = options['name']
 		@type = options['type']
@@ -34,7 +34,7 @@ class Animal
 			)
 			RETURNING *"
 			values = [@name, @type, @breed, @age, @admission_date, @ready_to_adopt, @owner_id]
-			animal_data = SqlRuner.run(sql, values)
-			@id = student_data.first()['id'].to_i
+			animal_data = SqlRunner.run(sql, values)
+			@id = animal_data.first()['id'].to_i
 		end
 end

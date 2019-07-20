@@ -5,7 +5,7 @@ class Owner
 	attr_reader :id
 	attr_accessor :owner_name
 
-	def initinalize ( options )
+	def initialize ( options )
 		@id = options['id'].to_i
 		@owner_name = options['owner_name']
 	end
