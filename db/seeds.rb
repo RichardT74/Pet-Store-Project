@@ -17,3 +17,15 @@ animal1 = Animal.new({
 	"owner_id" => owner1.id
 	})
 	animal1.save()
+
+
+	animal2 = Animal.new({
+	  "name" => "fenton",
+	  "type" => "dog",
+	  "breed" => "labrador",
+		"age" => 3,
+		"admission_date" => "05/05/2019",
+		"ready_to_adopt" => true,
+		"owner_id" => owner1.id
+		})
+		animal2.save()
