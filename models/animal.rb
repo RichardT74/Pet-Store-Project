@@ -1,10 +1,10 @@
 require_relative('../db/sql_runner')
-require_relative('.owner.rb')
+require_relative('./owner.rb')
 
 class Animal
 
 	attr_reader :id
-	attr_accessor :name, :type, :breed, :age, :admission_date, :ready_to_adopt :owner_id
+	attr_accessor :name, :type, :breed, :age, :admission_date, :ready_to_adopt, :owner_id
 
 	def initinalize ( options )
 		@id = options['id'].to_i
@@ -37,3 +37,4 @@ class Animal
 			animal_data = SqlRuner.run(sql, values)
 			@id = student_data.first()['id'].to_i
 		end
+end

@@ -1,4 +1,4 @@
-require_relative('../sql_runner.rb')
+require_relative('../db/sql_runner.rb')
 
 class Owner
 
@@ -24,3 +24,4 @@ class Owner
 				owner_data = SqlRunner.run(sql, values)
 				@id = owner_data.first()['id'].to_i
 	end
+end

@@ -12,3 +12,4 @@ class SqlRunner
 		end
 		return result
 	end
+end 
