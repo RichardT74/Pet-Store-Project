@@ -75,7 +75,7 @@ animal1 = Animal.new({
 				"ready_to_adopt" => false,
 				"owner_id" => nil
 				})
-		animal4.save()
+		animal5.save()
 
 binding.pry
 nil
