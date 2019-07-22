@@ -37,4 +37,24 @@ class Animal
 			animal_data = SqlRunner.run(sql, values)
 			@id = animal_data.first()['id'].to_i
 		end
+
+		def self.delete_all()
+			db = PG.connect({dbname: 'pet_store', host: 'localhost'})
+			sql = "DELETE FROM animals;"
+			db.prepare('delete_all', sql)
+			db.exec_prepared('delete_all')
+			db.close
+		end
+
+    def owner()
+			sql = "SELECT * FROM owners
+			WHERE id = $1"
+			values = [@owner_id]
+			results = SqlRunner.run( sql, values )
+			owner_data = results[0]
+			owner = Owner.new( owner_data )
+			return owner
+		end
+
+
 end

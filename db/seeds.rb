@@ -1,5 +1,7 @@
 require_relative("../models/owner.rb")
 require_relative("../models/animal.rb")
+require("pry")
+Owner.delete_all()
 
 owner1 = Owner.new({
 	"owner_name" => "Sally",
@@ -51,9 +53,9 @@ animal1 = Animal.new({
 			"ready_to_adopt" => true,
 			"owner_id" => owner2.id
 			})
-			animal2.save()
+			animal3.save()
 
-		animal3 = Animal.new({
+		animal4 = Animal.new({
 				"name" => "Fergus",
 				"type" => "cat",
 				"breed" => "Maine Coon",
@@ -62,4 +64,18 @@ animal1 = Animal.new({
 				"ready_to_adopt" => true,
 				"owner_id" => owner2.id
 				})
-		animal2.save()
+		animal4.save()
+
+		animal5 = Animal.new({
+				"name" => "Pushkin",
+				"type" => "cat",
+				"breed" => "Russian Longhair",
+				"age" => 4,
+				"admission_date" => "03/16/2019",
+				"ready_to_adopt" => false,
+				"owner_id" => nil
+				})
+		animal4.save()
+
+binding.pry
+nil
