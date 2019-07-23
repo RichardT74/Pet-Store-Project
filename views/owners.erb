@@ -1,11 +1,19 @@
-all owners
+
 <% @owner.each do |owner| %>
 
 
 
 <p>Owner name: <%= owner.owner_name %></p>
-<p>Animals: <%= owner.animal %></p>
 
+<% owner.animal.map {|animal| animal.name} %>
 
+<p>Animals: <%= owner.animal.length %></p>
+
+<% owner.animal.each do |animal| %>
+	name: <%= animal.name %>
+
+<br>
 
 <% end %>
+
+	<% end %>

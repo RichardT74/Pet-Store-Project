@@ -14,7 +14,7 @@ class Animal
 		@age = options['age'].to_i
 		@admission_date = options['admission_date']
 		@ready_to_adopt = options['ready_to_adopt'] ||=false
-		@owner_id = options['owner_id']
+		@owner_id = options['owner_id'].to_i
 	end
 
 	def save

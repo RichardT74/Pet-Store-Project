@@ -21,6 +21,11 @@ owner3 = Owner.new({
 	})
 owner3.save()
 
+owner4 = Owner.new({
+	"owner_name" => "Animal shelter"
+	})
+owner4.save()
+
 
 animal1 = Animal.new({
   "name" => "rex",
@@ -75,7 +80,7 @@ animal1 = Animal.new({
 				"age" => 4,
 				"admission_date" => "03/16/2019",
 				"ready_to_adopt" => false,
-				"owner_id" => nil
+				"owner_id" => owner4.id
 				})
 		animal5.save()
 

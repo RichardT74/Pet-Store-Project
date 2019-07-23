@@ -5,7 +5,11 @@
 <p>Age: <%= animal.age %></p>
 <p>Admission_date: <%= animal.admission_date %></p>
 <p>Ready_to_adopt: <%= animal.ready_to_adopt %></p>
-<p>Owner_id: <%= animal.owner_id %></p>
+<p>owner: <%= animal.owner.owner_name %></p>
+
+
+
+
 <p><a href="/animals/<%= animal.id %>">Show Animal</a></p>
 <hr />
 <% end %>

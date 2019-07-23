@@ -14,7 +14,7 @@ end
 
 #NEW
 get '/animals/new' do
-	@owner = Owner.all()
+	@owners = Owner.all()
 	erb( :new )
 end
 
@@ -31,7 +31,7 @@ post '/animals' do
 redirect '/animals'
 end
 
-#how animals
+#show animals
 get '/animals/owners' do
 	@owner = Owner.all()
 	@animal = Animal.all()
