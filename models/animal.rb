@@ -38,14 +38,6 @@ class Animal
 			@id = animal_data.first()['id'].to_i
 		end
 
-		def self.delete_all()
-			db = PG.connect({dbname: 'pet_store', host: 'localhost'})
-			sql = "DELETE FROM animals;"
-			db.prepare('delete_all', sql)
-			db.exec_prepared('delete_all')
-			db.close
-		end
-
     def owner()
 			sql = "SELECT * FROM owners
 			WHERE id = $1"
@@ -56,5 +48,29 @@ class Animal
 			return owner
 		end
 
+
+		def self.delete_all()
+			db = PG.connect({dbname: 'pet_store', host: 'localhost'})
+			sql = "DELETE FROM animals;"
+			db.prepare('delete_all', sql)
+			db.exec_prepared('delete_all')
+			db.close
+		end
+
+		def self.all()
+			sql = "SELECT * FROM animals"
+			animals = SqlRunner.run( sql )
+			result = animals.map { |animal| Animal.new(animal) }
+			return result
+    end
+
+		def self.find( id )
+		        sql = "SELECT * FROM animals
+		        WHERE id = $1"
+		        values = [id]
+		        animal = SqlRunner.run( sql, values )
+		        result = Animal.new( animal.first )
+		        return result
+		  end
 
 end

@@ -26,6 +26,17 @@ class Owner
 				@id = owner_data.first()['id'].to_i
 	end
 
+
+	def animal()
+		sql = "SELECT * FROM animals
+	  WHERE owner_id = $1"
+		values = [@id]
+		results = SqlRunner.run( sql, values )
+		animals = results.map { |animal| Animal.new( animal )}
+		return animals
+	end
+
+
 	def self.delete_all()
 		db = PG.connect({dbname: 'pet_store', host: 'localhost'})
 		sql = "DELETE FROM owners;"
@@ -34,12 +45,21 @@ class Owner
 		db.close
 	end
 
-  def animal()
-		sql = "SELECT * FROM animals
-	  WHERE owner_id = $1"
-		values = [@id]
-		results = SqlRunner.run( sql, values )
-		animals = results.map { |animal| Animal.new( animal )}
-		return animals
+  def self.all()
+		sql = "SELECT * FROM owners"
+		owners = SqlRunner.run( sql )
+	 result = owners.map { |owner| Owner.new(owner) }
+	 return result
 	end
+
+
+  def self.find( id )
+		sql = "SELECT * FROM owners
+		WHERE id = $1"
+		values = [id]
+		owner = SqlRunner.run( sql, values )
+		result = Owner.new ( owner.first )
+		return result
+	end
+
 end

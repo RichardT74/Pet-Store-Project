@@ -1,6 +1,8 @@
 require_relative("../models/owner.rb")
 require_relative("../models/animal.rb")
 require("pry")
+
+
 Owner.delete_all()
 
 owner1 = Owner.new({
