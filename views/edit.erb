@@ -1,0 +1,58 @@
+
+<form method="post" action="/animals">
+<label for="name">Name:</label>
+<input type="text"
+name="name"
+id="name-field"
+value="<%= @animal.name %>"
+/>
+
+<label for="type">Type:</label>
+<input type="text"
+name="type"
+id="type-field"
+value="<%= @animal.type %>"
+/>
+
+<label for="breed">Breed:</label>
+<input type="text"
+name="breed"
+id="breed-field"
+value="<%= @animal.breed %>"
+/>
+
+
+<label for="age">Age:</label>
+<input type="number"
+name="age"
+id="age-field"
+value="<%= @animal.age %>"
+/>
+
+
+<label for="admission_date">Admission_date:</label>
+<input type="date"
+name="admission_date"
+id="admission_date-field"
+value="<%= @animal.admission_date %>"
+/>
+
+<label for="ready_to_adopt">Ready_to_adopt:</label>
+<input type="text"
+name="ready_to_adopt"
+id="ready_to_adopt"
+value="<%= @animal.ready_to_adopt %>"
+/>
+
+<label for="owner-selection">Select a Owner:</label>
+<select name="owner_id" id="owner-selection">
+  <% @owners.each do |owner| %>
+    <option value="<%= owner.id %>"><%= owner.owner_name %></option>
+  <% end %>
+</select>
+
+
+<input type="submit"
+ value="Edit Animal">
+
+</form>

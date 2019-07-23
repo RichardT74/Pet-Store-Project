@@ -31,11 +31,15 @@ post '/animals' do
 redirect '/animals'
 end
 
-#show animals
+#animal owners list
 get '/animals/owners' do
 	@owner = Owner.all()
 	@animal = Animal.all()
 	erb(:owners)
 end
 
-get
+#edit
+get '/animals/:id/edit' do # edit
+  @animal = Animal.find( params[:id] )
+  erb( :edit )
+end
