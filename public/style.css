@@ -11,7 +11,7 @@ body{
 
 span {
   color: white;
-  background-color: #981ba2;
+  background-color: #6B7A8F;
 }
 
 button {
@@ -26,9 +26,10 @@ p.a{
 }
 
 nav {
-	text-align: center;}
+	text-align: center;
+  font: #6B7A8F}
 
 nav li {
 	display: inline-block;
   padding: 20px;
-  color: #F7C331;}
+  color: #6B7A8F;}
