@@ -48,6 +48,32 @@ class Animal
 			return owner
 		end
 
+   def delete()
+		 sql = "DELETE FROM animals
+		 WHERE id = $1;"
+		 values = [@id]
+		 SqlRunner.run(sql, values)
+	 end
+
+	 def update()
+     sql = "UPDATE animals
+     SET
+     (
+			 name,
+			 type,
+			 breed,
+			 age,
+			 admission_date,
+			 ready_to_adopt,
+			 owner_id
+     ) =
+     (
+       $1, $2, $3, $4, $5, $6, $7
+     )
+     WHERE id = $8"
+     values = [@name, @type, @breed, @age, @admission_date, @ready_to_adopt, @owner_id, @id]
+     SqlRunner.run( sql, values )
+   end
 
 		def self.delete_all()
 			db = PG.connect({dbname: 'pet_store', host: 'localhost'})

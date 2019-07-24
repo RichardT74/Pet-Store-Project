@@ -41,6 +41,7 @@ end
 #edit
 get '/animals/:id/edit' do # edit
   @animal = Animal.find( params[:id] )
+	@owners = Owner.all()
   erb( :edit )
 end
 
@@ -48,4 +49,15 @@ post '/animals/:id/delete' do # delete
   animal = Animal.find( params[:id] )
   animal.delete()
   redirect to '/animals'
+end
+
+post '/animals/:id' do
+	@animal = Animal.new(params)
+  @animal.update
+	redirect to 'animals'
+
+end
+
+get '/' do
+	erb(:home)
 end

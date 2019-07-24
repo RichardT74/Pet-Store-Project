@@ -37,6 +37,10 @@ class Owner
 	end
 
 
+
+
+
+
 	def self.delete_all()
 		db = PG.connect({dbname: 'pet_store', host: 'localhost'})
 		sql = "DELETE FROM owners;"

@@ -1,5 +1,5 @@
 
-<form method="post" action="/animals">
+<form method="post" action="/animals/<%= @animal.id %>">
 <label for="name">Name:</label>
 <input type="text"
 name="name"
@@ -43,7 +43,7 @@ name="ready_to_adopt"
 id="ready_to_adopt"
 value="<%= @animal.ready_to_adopt %>"
 />
-#problem with owner name below
+
 <label for="owner-selection">Select a Owner:</label>
 <select name="owner_id" id="owner-selection">
   <% @owners.each do |owner| %>
