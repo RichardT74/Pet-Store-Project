@@ -1,4 +1,6 @@
 <% @animals.each do |animal| %>
+
+
 <p>Name: <%= animal.name %></p>
 <p>Type: <%= animal.type %></p>
 <p>Breed: <%= animal.breed %></p>
@@ -7,13 +9,11 @@
 <p>Ready_to_adopt: <%= animal.ready_to_adopt %></p>
 <p>owner: <%= animal.owner.owner_name %></p>
 
-
-
 <p><a href="/animals/<%= animal.id %>/edit">Edit Animal</a></p>
-
 
 <form method="post" action="/animals/<%= animal.id %>/delete">
   <input type="submit" value="Delete Animal"/>
 </form>
 
+<hr>
 <% end %>

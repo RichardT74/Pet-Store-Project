@@ -61,3 +61,8 @@ end
 get '/' do
 	erb(:home)
 end
+
+get '/animals/awaiting' do
+	@animals = Animal.available_animals()
+  erb(:awaiting)
+end

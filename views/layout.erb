@@ -7,17 +7,20 @@
 </head>
 <body>
 
-	<%= yield %>
+
 	<nav>
 		<ul>
+			<li><a href="/">Home</a></li>
 			<li><a href="/animals/new">New Animal</a></li>
 			<li><a href="/animals">All Animals</a></li>
 			<li><a href="/animals/owners">All Owners</a></li>
-			<li><a href="/">Home</a></li>
+				<li><a href="/animals/awaiting">Needing Adoption</a></li>
+
 
 		</ul>
 	</nav>
 
+	<%= yield %>
 
 </body>
 </html>

@@ -99,4 +99,13 @@ class Animal
 		        return result
 		  end
 
+			def self.available_animals()
+				sql = "SELECT * FROM animals
+				WHERE ready_to_adopt = $1"
+				values = ["t"]
+				animals = SqlRunner.run( sql, values )
+				result = animals.map { |animal| Animal.new(animal) }
+				return result
+			end
+
 end
